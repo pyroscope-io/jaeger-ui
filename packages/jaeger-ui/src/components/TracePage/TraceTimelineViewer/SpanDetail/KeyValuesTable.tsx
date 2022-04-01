@@ -23,6 +23,8 @@ import { KeyValuePair, Link } from '../../../../types/trace';
 
 import './KeyValuesTable.css';
 
+import FlameGraph from './FlameGraph';
+
 const jsonObjectOrArrayStartRegex = /^(\[|\{)/;
 
 function tryParseJson(value: string) {
@@ -100,6 +102,18 @@ export default function KeyValuesTable(props: KeyValuesTableProps) {
             const jsonTable = formatValue(row.value);
             const links = linksGetter ? linksGetter(data, i) : null;
             let valueMarkup;
+
+            if (row.key === 'pyroscope.profile.url') {
+              return (
+                <tr className="KeyValueTable--row" key={`${row.key}-${i}`}>
+                  <td className="KeyValueTable--keyColumn">{row.key}</td>
+                  <td colSpan={2}>
+                    <FlameGraph url={row.value} />
+                  </td>
+                </tr>
+              );
+            }
+
             if (links && links.length === 1) {
               valueMarkup = (
                 <div>

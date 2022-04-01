@@ -16,6 +16,7 @@
 const fs = require('fs');
 const { addBabelPlugin, addLessLoader } = require('customize-cra');
 const lessToJs = require('less-vars-to-js');
+const rewireCssModules = require('react-app-rewire-css-modules');
 
 function useEslintRc(config) {
   const { rules } = config.module;
@@ -39,13 +40,14 @@ function useEslintRc(config) {
 const loadedVarOverrides = fs.readFileSync('config-overrides-antd-vars.less', 'utf8');
 const modifyVars = lessToJs(loadedVarOverrides);
 
-function webpack(_config) {
+function webpack(_config, env) {
   let config = _config;
   config = addLessLoader({
     modifyVars,
     javascriptEnabled: true,
   })(config);
   config = addBabelPlugin(['import', { libraryName: 'antd', style: true }])(config);
+  config = rewireCssModules(config, env);
   useEslintRc(config);
   return config;
 }
