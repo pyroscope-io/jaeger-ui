@@ -15,7 +15,7 @@
 // For jest
 declare const global: {
   location: Location;
-}
+};
 
 declare interface Window {
   // For setting the site-prefix
@@ -31,8 +31,8 @@ declare const process: {
     NODE_ENV: string;
     REACT_APP_GA_DEBUG?: string;
     REACT_APP_VSN_STATE?: string;
-  }
-}
+  };
+};
 
 declare module 'combokeys' {
   export default class Combokeys {
@@ -47,3 +47,4 @@ declare module 'json-markup';
 declare module 'react-vis-force';
 declare module 'tween-functions';
 declare module '*.png' { export default '' as string; }
+declare module '*.module.scss';
