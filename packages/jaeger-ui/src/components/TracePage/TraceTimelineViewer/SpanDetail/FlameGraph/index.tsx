@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import FlamegraphRenderer from './FlameGraphRenderer';
+// import FlamegraphRenderer from './FlameGraphRenderer';
 import { pyroscopeCPU } from './testData';
+import { FlamegraphRenderer } from "@pyroscope/flamegraph";
+import "@pyroscope/flamegraph/dist/index.css";
 
 const FlameGraph = ({ url }: { url: string }) => {
   const [profile, setProfile] = useState();

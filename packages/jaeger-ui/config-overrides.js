@@ -14,7 +14,7 @@
 
 /* eslint-disable import/no-extraneous-dependencies */
 const fs = require('fs');
-const { addBabelPlugin, addLessLoader } = require('customize-cra');
+const { addBabelPlugin, addLessLoader, useBabelRc } = require('customize-cra');
 const lessToJs = require('less-vars-to-js');
 const rewireCssModules = require('react-app-rewire-css-modules');
 
@@ -47,6 +47,7 @@ function webpack(_config, env) {
     javascriptEnabled: true,
   })(config);
   config = addBabelPlugin(['import', { libraryName: 'antd', style: true }])(config);
+  config = useBabelRc()(config)
   config = rewireCssModules(config, env);
   useEslintRc(config);
   return config;

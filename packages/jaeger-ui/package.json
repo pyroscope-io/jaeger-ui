@@ -15,10 +15,19 @@
       "react-app-rewired/**"
     ]
   },
+  "resolutions": {
+    "**/@babel/core": "7.17.9",
+    "@babel/core": "7.17.9"
+  },
   "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/preset-env": "^7.16.11",
+    "@svgr/webpack": "^6.2.1",
     "@types/match-sorter": "^2.3.0",
     "@types/react-window": "^1.8.0",
     "babel-plugin-import": "1.11.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "bluebird": "^3.5.0",
     "customize-cra": "0.6.1",
     "enzyme": "^3.8.0",
@@ -126,7 +135,9 @@
     "start:ga-debug": "REACT_APP_GA_DEBUG=1 REACT_APP_VSN_STATE=$(../../scripts/get-tracking-version.js) react-app-rewired start",
     "start": "react-app-rewired start",
     "test-dev": "react-app-rewired test --env=jsdom",
-    "test": "CI=1 react-app-rewired test --env=jsdom --color"
+    "test": "CI=1 react-app-rewired test --env=jsdom --color",
+    "transpile": "babel ../../node_modules/@pyroscope/flamegraph/dist/index.js  --out-dir dist2",
+    "vv": "babel -V"
   },
   "jest": {
     "globalSetup": "./jest.global-setup.js",
