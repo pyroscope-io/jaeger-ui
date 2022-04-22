@@ -108,7 +108,18 @@ export default function KeyValuesTable(props: KeyValuesTableProps) {
                 <tr className="KeyValueTable--row" key={`${row.key}-${i}`}>
                   <td className="KeyValueTable--keyColumn">{row.key}</td>
                   <td colSpan={2}>
-                    <FlameGraph url={row.value} />
+                    <FlameGraph type="single" url={row.value} />
+                  </td>
+                </tr>
+              );
+            }
+
+            if (row.key === 'pyroscope.profile.diff.url') {
+              return (
+                <tr className="KeyValueTable--row" key={`${row.key}-${i}`}>
+                  <td className="KeyValueTable--keyColumn">{row.key}</td>
+                  <td colSpan={2}>
+                    <FlameGraph type="diff" url={row.value} />
                   </td>
                 </tr>
               );
