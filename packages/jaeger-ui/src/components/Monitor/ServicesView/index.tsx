@@ -243,7 +243,7 @@ export class MonitorATMServicesViewImpl extends React.PureComponent<TProps, Stat
             message={
               <>
                 No data yet! Please see these
-                <Link to={`//${this.docsLink}`} target="_blank">
+                <Link to={{ pathname: this.docsLink }} target="_blank">
                   &nbsp;instructions&nbsp;
                 </Link>
                 on how to set up your span metrics.
@@ -348,7 +348,7 @@ export class MonitorATMServicesViewImpl extends React.PureComponent<TProps, Stat
                 error={metrics.serviceError.service_call_rate}
                 name="Request rate (req/s)"
                 width={this.state.graphWidth}
-                metricsData={null}
+                metricsData={metrics.serviceMetrics ? metrics.serviceMetrics.service_call_rate : null}
                 showHorizontalLines
                 color="#4795BA"
                 marginClassName="request-margins"
