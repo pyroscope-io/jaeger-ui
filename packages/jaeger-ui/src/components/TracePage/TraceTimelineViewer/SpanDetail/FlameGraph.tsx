@@ -29,6 +29,8 @@ const composeUrl = ({ url, type }: IProps) => {
       return `${origin}/render-diff?${queryString.stringify({
         from: parsed.query.from,
         until: parsed.query.until,
+        rightQuery: parsed.query.rightQuery,
+        leftQuery: parsed.query.leftQuery,
         query: parsed.query.query,
         leftFrom: parsed.query.leftFrom,
         leftUntil: parsed.query.leftUntil,
