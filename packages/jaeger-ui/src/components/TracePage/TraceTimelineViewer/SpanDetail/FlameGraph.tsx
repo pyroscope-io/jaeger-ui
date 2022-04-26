@@ -45,8 +45,14 @@ const FlameGraph = ({ url, type }: IProps) => {
   useEffect(() => {
     const fetchFlameGraphData = async () => {
       try {
-        const response = await fetch(composeUrl({ url, type }));
+        const dataUrl = composeUrl({ url, type });
+        const response = await fetch(dataUrl);
         const data = await response.json();
+
+        // for test purposes
+        console.log('type: ', type);
+        console.log('url: ', url);
+        console.log('dataUrl: ', dataUrl);
 
         setProfile(data);
       } catch (error) {
