@@ -58,7 +58,7 @@ const FlameGraph = ({ url, type }: IProps) => {
     };
 
     fetchFlameGraphData();
-  }, []);
+  }, [url, type]);
 
   return (
     <div
