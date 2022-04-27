@@ -51,11 +51,6 @@ const FlameGraph = ({ url, type }: IProps) => {
         const response = await fetch(dataUrl);
         const data = await response.json();
 
-        // for test purposes
-        console.log('type: ', type);
-        console.log('url: ', url);
-        console.log('dataUrl: ', dataUrl);
-
         setProfile(data);
       } catch (error) {
         console.log('error', error);
