@@ -1642,10 +1642,10 @@
     universal-user-agent "^2.0.0"
     url-template "^2.0.8"
 
-"@pyroscope/flamegraph@0.14.3":
-  version "0.14.3"
-  resolved "https://registry.yarnpkg.com/@pyroscope/flamegraph/-/flamegraph-0.14.3.tgz#481349040a8a1683a0c8f5281ed7ece3c08a0a80"
-  integrity sha512-I1Ukh938N4ZVQkdlFSRBkao+uUqmzOIx20S7oN0C6hn9XqB3LvH/vD9hwmhPAIgVmWXH/iQdnrYkin5lrSf5gQ==
+"@pyroscope/flamegraph@0.14.8":
+  version "0.14.8"
+  resolved "https://registry.yarnpkg.com/@pyroscope/flamegraph/-/flamegraph-0.14.8.tgz#5520d18fd01c9492a398babb12968c8cb3aced44"
+  integrity sha512-HRkMExQMJlvHv0SAp49XhaQj3/2mhtghlEp+t3ErBz7gp1Ah5FFxM8lVX3tZn9qCIPtGCDt5wF6KLZYSWipCuQ==
   dependencies:
     "true-myth" "^5.1.2"
 
